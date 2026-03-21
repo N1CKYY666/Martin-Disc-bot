@@ -26,6 +26,14 @@ async def add(ctx, left: int, right: int):
 async def repeat(ctx, times: int, content='repeating...'):
     for i in range(times):
         await ctx.send(content)
+@bot.command()
+async def eat(ctx, food: str, times: int):
+    food_text = food if times == 1 else food + "s"
+
+    if times > 5:
+        await ctx.send(f"🍴- Gosh, I don't think {times} {food_text} will fit in my stomach! Sorry :(")
+    else:
+        await ctx.send(f"🍰- Yum! I ate {times} {food_text}! Thank you very much")
 
 
 bot.run("+)
